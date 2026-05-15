@@ -1,1 +1,53 @@
-<p>vista-principal works!</p>
+<!-- Header arriba con la navegacion.
+     navbar = barra de navegacion de Bootstrap
+     bg-dark + navbar-dark = fondo oscuro con texto claro -->
+<nav class="navbar navbar-dark bg-dark px-4">
+
+  <!-- Lado izquierdo del header: nombre de la pagina -->
+  <span class="navbar-brand">Mi Pagina</span>
+
+  <!-- Lado derecho del header: secciones y boton salir -->
+  <div>
+    <a href="#" class="text-white me-3">Sec 1</a>
+    <a href="#" class="text-white me-3">Sec 2</a>
+    <a href="#" class="text-white me-3">Sec 3</a>
+    <button class="btn btn-outline-light btn-sm" (click)="salir()">Salir</button>
+  </div>
+</nav>
+
+<!-- Contenido principal: las 3 tarjetas -->
+<div class="container mt-4">
+  <div class="row">
+
+    <!-- Tarjeta 1 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tarjeta 1</h5>
+          <p class="card-text">Aqui va el contenido de la primera tarjeta.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tarjeta 2</h5>
+          <p class="card-text">Aqui va el contenido de la segunda tarjeta.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tarjeta 3</h5>
+          <p class="card-text">Aqui va el contenido de la tercera tarjeta.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

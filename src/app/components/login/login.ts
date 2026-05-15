@@ -1,7 +1,4 @@
-// Traigo la herramienta de componentes
-import { Component } from '@angular/core';
-
-// Traigo FormsModule para usar ngModel
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,41 +9,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class Login {
 
-  // Variables del formulario
+  // Lo que escribe el usuario
   email: string = '';
   password: string = '';
 
-  // Variable para guardar el mensaje de error
-  // Si esta vacia no se muestra nada en pantalla
+  // Aqui guardo el error si algo esta mal
   mensajeError: string = '';
 
-  // Funcion que se ejecuta al hacer clic en Aceptar
-  aceptar() {
+  // Esto sirve para avisarle al componente padre cuando el login es correcto
+  @Output() loginExitoso = new EventEmitter<void>();
 
-    // Primero limpio cualquier error anterior
+  aceptar() {
+    // Limpio errores previos
     this.mensajeError = '';
 
-    // Reviso si el email esta vacio
+    // Validaciones
     if (this.email === '') {
       this.mensajeError = 'El email es obligatorio';
-      return; // salgo de la funcion, no sigo
+      return;
     }
 
-    // Reviso si el email no tiene @ (no es un email valido)
     if (!this.email.includes('@')) {
       this.mensajeError = 'El email no es valido';
       return;
     }
 
-    // Reviso si el password esta vacio
     if (this.password === '') {
       this.mensajeError = 'El password es obligatorio';
       return;
     }
 
-    // Si llego hasta aqui, todo esta bien
-    console.log('Login correcto!');
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
+    // Si todo paso, aviso al padre
+    this.loginExitoso.emit();
   }
 }

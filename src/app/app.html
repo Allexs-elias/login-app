@@ -1,3 +1,8 @@
-<!-- Aqui llamo a mi componente Login.
-     Angular reemplazara esta linea por todo el HTML del Login -->
-<app-login></app-login>
+<!-- Si no esta logueado muestro el login, si ya esta logueado muestro la vista principal -->
+
+@if (estaLogueado === false) {
+  <app-login (loginExitoso)="alLoguear()"></app-login>
+}
+@else {
+  <app-vista-principal (cerrarSesion)="alSalir()"></app-vista-principal>
+}
